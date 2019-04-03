@@ -11,6 +11,13 @@ def move_n_files(source_path, des_path):
     audio_ind = [a for a in audio_path.glob("*.wav") if a.is_file()]
     video_ind = [v for v in video_path.glob("*.mpg") if v.is_file()]
 
+    Path(d_path/ f"grid_s1_train" / f"audio")).mkdir()
+    Path(d_path/ f"grid_s1_train" / f"video")).mkdir()
+    Path(d_path/ f"grid_s1_val" / f"audio")).mkdir()
+    Path(d_path/ f"grid_s1_val" / f"video")).mkdir()
+    Path(d_path/ f"grid_s1_test" / f"audio")).mkdir()  
+    Path(d_path/ f"grid_s1_test" / f"video")).mkdir() 
+
     for i in range(0,800):
         copy2(str(f"{audio_ind[i]}"), str(d_path / f"grid_s1_train" / f"audio")) 
         copy2(str(f"{video_ind[i]}"), str(d_path / f"grid_s1_train" / f"video")) 
