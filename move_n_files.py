@@ -25,4 +25,4 @@ def move_n_files(source_path, des_path):
         copy2(str(video_path) / f"{video_ind[i]}", str(d_path) / f"grid_s1_test" / f"video") 
 
 if __name__ == "__main__":
-    move_n_files("/media/datas-2/steinsun/datasets/grid/s1", "/media/datas-2/steinsun/datasets/grid_s1")
+    move_n_files("/media/datas-2/steinsun/datasets/grid/s1/", "/media/datas-2/steinsun/datasets/grid_s1/")
