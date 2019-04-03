@@ -1,5 +1,4 @@
 from pathlib import Path
-from shutil import copy2
 
 def delete_n_files(source_path):
     print("Start!")
