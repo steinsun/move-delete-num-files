@@ -2,10 +2,9 @@ from pathlib import Path
 
 def delete_n_files(source_path):
     print("Start!")
+    
     s_path = Path(source_path)
-
     audio_path = s_path / f"audio"
-
 
     audio_ind = [a for a in audio_path.glob("*.wav") if a.is_file()]
 
