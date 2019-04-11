@@ -26,17 +26,17 @@ def move_n_files(source_path, des_path, train_per, val_per):
     #audio_ind = [a for a in audio_path.glob("*.wav") if a.is_file()]
     #video_ind = [v for v in video_path.glob("*.mpg") if v.is_file()]
 
-    for name in audio_ind[0:int(train_per*num)]:
-        copy2(str(s_audio_path / f"{name}.wav"), str(d_train_path / f"audio"))     
-        copy2(str(s_video_path / f"{name}.mpg"), str(d_train_path  / f"video")) 
+    for train in audio_ind[0:int(train_per*num)]:
+        copy2(str(s_audio_path / f"{train}.wav"), str(d_train_path / f"audio"))     
+        copy2(str(s_video_path / f"{train}.mpg"), str(d_train_path  / f"video")) 
 
-    for name in audio_ind[int(train_per*num):int((train_per+val_per)*num)]:
-        copy2(str(s_audio_path / f"{name}.wav"), str(d_val_path / f"audio")) 
-        copy2(str(s_video_path / f"{name}.mpg"), str(d_val_path / f"video")) 
+    for val in audio_ind[int(train_per*num):int((train_per+val_per)*num)+1]:
+        copy2(str(s_audio_path / f"{val}.wav"), str(d_val_path / f"audio")) 
+        copy2(str(s_video_path / f"{val}.mpg"), str(d_val_path / f"video")) 
 
-    for name in audio_ind[int((train_per+val_per))*num:num]:
-        copy2(str(s_audio_path / f"{name}.wav"), str(d_test_path / f"audio")) 
-        copy2(str(s_video_path / f"{name}.mpg"), str(d_test_path / f"video")) 
+    for test in audio_ind[int((train_per+val_per))*num+1:]:
+        copy2(str(s_audio_path / f"{test}.wav"), str(d_test_path / f"audio")) 
+        copy2(str(s_video_path / f"{test}.mpg"), str(d_test_path / f"video")) 
 
     print("Done!")
 
