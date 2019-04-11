@@ -3,14 +3,16 @@ from shutil import copy2
 
 def move_n_files(source_path, des_path, train_per, val_per):
     print("Start!")
-    s_path = Path(source_path)
-    d_path = Path(des_path)
 
-    audio_path = s_path / f"audio"
-    video_path = s_path / f"video"
+    s_audio_path = Path(source_path)/ f"audio"
+    s_video_path = Path(source_path) / f"video"
+
+    d_train_path = Path(des_path) / f"grid_s2_train" 
+    d_val_path = Path(des_path) / f"grid_s2_val" 
+    d_test_path = Path(des_path) / f"grid_s2_test" 
 
     audio_ind = []
-    for audio in audio_path.iterdir():
+    for audio in s_audio_path.iterdir():
         audio_ind.append(str(audio.stem))
 
     num = len(audio_ind)
@@ -18,14 +20,26 @@ def move_n_files(source_path, des_path, train_per, val_per):
     #video_ind = [v for v in video_path.glob("*.mpg") if v.is_file()]
 
     for name in audio_ind[0:int(train_per*num)]:
-        copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_train" / f"audio")) 
-        copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_train" / f"video")) 
+        if (d_train_path / f"audio").is_dir() == False:
+            d_train_path.mkdir("audio")
+        copy2(str(s_audio_path / f"{name}.wav"), str(d_train_path / f"audio")) 
+        if (d_train_path / f"video").is_dir() == False:
+            d_train_path.mkdir("video")
+        copy2(str(s_video_path / f"{name}.mpg"), str(d_train_path  / f"video")) 
     for name in audio_ind[int(train_per*num):int((train_per+val_per)*num)]:
-        copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_val" / f"audio")) 
-        copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_val" / f"video")) 
+        if (d_val_path / f"audio").is_dir() == False:
+            d_val_path.mkdir("audio")
+        copy2(str(s_audio_path / f"{name}.wav"), str(d_val_path / f"audio")) 
+        if (d_val_path / f"video").is_dir() == False:
+            d_val_path.mkdir("video")
+        copy2(str(s_video_path / f"{name}.mpg"), str(d_val_path / f"video")) 
     for name in audio_ind[int((train_per+val_per))*num:num]:
-        copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_test" / f"audio")) 
-        copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_test" / f"video")) 
+        if (d_test_path / f"audio").is_dir() == False:
+            d_test_path.mkdir("audio")
+        copy2(str(s_audio_path / f"{name}.wav"), str(d_test_path / f"audio")) 
+        if (d_test_path / f"video").is_dir() == False:
+            d_test_path.mkdir("video")
+        copy2(str(s_video_path / f"{name}.mpg"), str(d_test_path / f"video")) 
 
     print("Done!")
 
