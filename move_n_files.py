@@ -11,6 +11,13 @@ def move_n_files(source_path, des_path, train_per, val_per):
     d_val_path = Path(des_path) / f"grid_s2_val" 
     d_test_path = Path(des_path) / f"grid_s2_test" 
 
+    if d_train_path.is_dir() == False:
+        d_train_path.mkdir()
+    if d_val_path.is_dir() == False:
+        d_val_path.mkdir()
+    if d_test_path.is_dir() == False:
+        d_test_path.mkdir()
+
     audio_ind = []
     for audio in s_audio_path.iterdir():
         audio_ind.append(str(audio.stem))
