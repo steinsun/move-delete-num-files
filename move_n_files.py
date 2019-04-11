@@ -21,7 +21,7 @@ def move_n_files(source_path, des_path, train_per, val_per):
 
     for name in audio_ind[0:int(train_per*num)]:
         if (d_train_path / f"audio").is_dir() == False:
-            d_train_path.mkdir("audio")
+            (d_train_path / f"audio").mkdir()
         copy2(str(s_audio_path / f"{name}.wav"), str(d_train_path / f"audio")) 
         if (d_train_path / f"video").is_dir() == False:
             d_train_path.mkdir("video")
