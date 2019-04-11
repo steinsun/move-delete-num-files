@@ -17,13 +17,13 @@ def move_n_files(source_path, des_path, train_per, val_per):
     #audio_ind = [a for a in audio_path.glob("*.wav") if a.is_file()]
     #video_ind = [v for v in video_path.glob("*.mpg") if v.is_file()]
 
-    for name in audio_ind[0:train_per*num]:
+    for name in audio_ind[0:int(train_per*num)]:
         copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_train" / f"audio")) 
         copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_train" / f"video")) 
-    for name in audio_ind[train_per*num:(train_per+val_per)*num]:
+    for name in audio_ind[int(train_per*num):int((train_per+val_per)*num)]:
         copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_val" / f"audio")) 
         copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_val" / f"video")) 
-    for name in audio_ind[(train_per+val_per)*num:num]:
+    for name in audio_ind[int((train_per+val_per))*num:num]:
         copy2(str(audio_path / f"{name}.wav"), str(d_path / f"grid_s2_test" / f"audio")) 
         copy2(str(video_path / f"{name}.mpg"), str(d_path / f"grid_s2_test" / f"video")) 
 
