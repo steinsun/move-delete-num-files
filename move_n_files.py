@@ -17,15 +17,15 @@ def move_n_files(source_path, des_path):
     #video_ind = [v for v in video_path.glob("*.mpg") if v.is_file()]
 
     for name in audio_ind[0:700]:
-        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_train"/ f"train" / f"audio")) 
-        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_train"/ f"train" / f"video")) 
+        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_train" / f"audio")) 
+        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_train" / f"video")) 
     for name in audio_ind[700:800]:
-        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_train"/ f"train" / f"audio")) 
-        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_train"/ f"train" / f"video")) 
+        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_val" / f"audio")) 
+        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_val" / f"video")) 
     for name in audio_ind[800:1000]:
-        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_train"/ f"train" / f"audio")) 
-        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_train"/ f"train" / f"video")) 
-        
+        copy2(str(f"{name}.wav"), str(d_path / f"grid_s2_test" / f"audio")) 
+        copy2(str(f"{name}.mpg"), str(d_path / f"grid_s2_test" / f"video")) 
+
     print("Done!")
 
 if __name__ == "__main__":
