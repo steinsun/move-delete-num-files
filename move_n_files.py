@@ -7,9 +7,9 @@ def move_n_files(source_path, des_path, train_per, val_per):
     s_audio_path = Path(source_path)/ f"audio"
     s_video_path = Path(source_path) / f"video"
 
-    d_train_path = Path(des_path) / f"grid_s2_train" 
-    d_val_path = Path(des_path) / f"grid_s2_val" 
-    d_test_path = Path(des_path) / f"grid_s2_test" 
+    d_train_path = Path(des_path) / f"grid_s2_train" / f"s2"
+    d_val_path = Path(des_path) / f"grid_s2_val" / f"s2"
+    d_test_path = Path(des_path) / f"grid_s2_test" / f"s2"
 
     if d_train_path.is_dir() == False: d_train_path.mkdir()
     if d_val_path.is_dir() == False: d_val_path.mkdir()
