@@ -44,5 +44,5 @@ def move_n_files(source_path, des_path, train_per, val_per):
     print("Done!")
 
 if __name__ == "__main__":
-    move_n_files("/media/datas-2/steinsun/datasets/grid/s2/", "/media/datas-2/steinsun/datasets/grid_s2/s2/", 
+    move_n_files("/media/datas-2/steinsun/datasets/grid/s2/", "/media/datas-2/steinsun/datasets/grid_s2/", 
         train_per=0.7, val_per=0.1)
