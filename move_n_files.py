@@ -30,11 +30,11 @@ def move_n_files(source_path, des_path, train_per, val_per):
         copy2(str(s_audio_path / f"{train}.wav"), str(d_train_path / f"audio"))     
         copy2(str(s_video_path / f"{train}.mpg"), str(d_train_path  / f"video")) 
 
-    for val in audio_ind[int(train_per*num):int((train_per+val_per)*num)+1]:
+    for val in audio_ind[int(train_per*num):int((train_per+val_per)*num)]:
         copy2(str(s_audio_path / f"{val}.wav"), str(d_val_path / f"audio")) 
         copy2(str(s_video_path / f"{val}.mpg"), str(d_val_path / f"video")) 
 
-    for test in audio_ind[int((train_per+val_per))*num+1:]:
+    for test in audio_ind[int((train_per+val_per)*num):]:
         copy2(str(s_audio_path / f"{test}.wav"), str(d_test_path / f"audio")) 
         copy2(str(s_video_path / f"{test}.mpg"), str(d_test_path / f"video")) 
 
