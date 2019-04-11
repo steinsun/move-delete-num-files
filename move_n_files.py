@@ -8,18 +8,15 @@ def move_n_files(source_path, des_path, train_per, val_per):
     s_video_path = Path(source_path) / f"video"
 
     d_train_path = Path(des_path) / f"grid_s2_train" / f"s2"
-    d_val_path = Path(des_path) / f"grid_s2_val" / f"s2"
-    d_test_path = Path(des_path) / f"grid_s2_test" / f"s2"
+    d_val_path   = Path(des_path) / f"grid_s2_val" / f"s2"
+    d_test_path  = Path(des_path) / f"grid_s2_val" / f"s2"
 
-    if d_train_path.is_dir() == False: d_train_path.mkdir()
-    if d_val_path.is_dir() == False: d_val_path.mkdir()
-    if d_test_path.is_dir() == False: d_test_path.mkdir()
-    if (d_train_path / f"audio").is_dir() == False: (d_train_path / f"audio").mkdir()
-    if (d_train_path / f"video").is_dir() == False: (d_train_path / f"video").mkdir()
-    if (d_val_path / f"audio").is_dir() == False: (d_val_path / f"audio").mkdir()
-    if (d_val_path / f"video").is_dir() == False: (d_val_path / f"video").mkdir()
-    if (d_test_path / f"audio").is_dir() == False: (d_test_path / f"audio").mkdir()
-    if (d_test_path / f"video").is_dir() == False: (d_test_path / f"video").mkdir()
+    if (d_train_path / f"audio").is_dir() == False: (d_train_path / f"audio").mkdir(parents=True)
+    if (d_train_path / f"video").is_dir() == False: (d_train_path / f"video").mkdir(parents=True)
+    if (d_val_path   / f"audio").is_dir() == False: (d_val_path / f"audio").mkdir(parents=True)
+    if (d_val_path   / f"video").is_dir() == False: (d_val_path / f"video").mkdir(parents=True)
+    if (d_test_path  / f"audio").is_dir() == False: (d_test_path / f"audio").mkdir(parents=True)
+    if (d_test_path  / f"video").is_dir() == False: (d_test_path / f"video").mkdir(parents=True)
 
     audio_ind = []
     for audio in s_audio_path.iterdir():
