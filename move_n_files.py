@@ -1,6 +1,7 @@
 from pathlib import Path
 from shutil import copy2
 
+##designed for GRID speaker id s2
 def move_n_files(source_path, des_path, train_per, val_per):
     print("Start!")
 
