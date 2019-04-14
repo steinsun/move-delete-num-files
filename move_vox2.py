@@ -29,6 +29,6 @@ if __name__ == "__main__" :
     speaker_audio_dir_path = Path("/home/szb/datasets/vox2tmp/audio")
     speaker_video_dir_path = Path("/home/szb/datasets/vox2tmp/video")
     des_dir_path = Path(f"/home/szb/datasets/vox2")
-    move_audio(speaker_audio_dir_path,des_dir_path)
-    move_video(speaker_video_dir_path,des_dir_path)
+    move_audio(speaker_audio_dir_path, des_dir_path)
+    move_video(speaker_video_dir_path, des_dir_path)
 
