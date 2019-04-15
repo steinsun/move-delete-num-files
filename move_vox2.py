@@ -7,7 +7,7 @@ def move_audio(source_path,des_path) :
         Path(des_dir_path/speaker.stem).mkdir(exist_ok=True)
         Path(des_dir_path/speaker.stem/f"audio").mkdir(exist_ok=True)
         for youtubeid in speaker.iterdir():
-            audio_dir = list(youtubeid.glob("*.wav"))
+            audio_dir = list(youtubeid.glob("*.m4a"))
             print(str(youtubeid))
             for audio in audio_dir:
                 print(f"from {audio} to {str(speaker)}/audio/{audio.stem}{audio.suffix}")
@@ -19,7 +19,7 @@ def move_video(source_path,des_path) :
         Path(des_dir_path/speaker.stem).mkdir(exist_ok=True)
         Path(des_dir_path/speaker.stem/f"video").mkdir(exist_ok=True)
         for youtubeid in speaker.iterdir():
-            video_dir = list(youtubeid.glob("*.mpg"))
+            video_dir = list(youtubeid.glob("*.mp4"))
             print(str(youtubeid))
             for video in video_dir:
                 print(f"from {video} to {str(speaker)}/video/{video.stem}{video.suffix}")
