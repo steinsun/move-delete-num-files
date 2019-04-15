@@ -1,6 +1,7 @@
 from pathlib import Path
 from shutil import copy2
 from pydub import AudioSegment
+from concurrent.futures import ProcessPoolExecutor
 
 def move_audio(src_path,dst_path) :
     audio_dir = []
@@ -43,6 +44,10 @@ if __name__ == "__main__" :
     speaker_audio_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/audio/vox2_aac/dev/aac")
     speaker_video_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/video/vox2_mp4/dev/mp4")
     dst_dir_path = Path("/media/datas/steinsun/datasets/vox2")
-    move_audio(speaker_audio_dir_path, dst_dir_path)
-    move_video(speaker_video_dir_path, dst_dir_path)
+
+    with ProcessPoolExecutor(8) as executor:
+        executor.map(move_audio, speaker_audio_dir_path, dst_dir_path, timeout=10)
+
+    #move_audio(speaker_audio_dir_path, dst_dir_path)
+    #move_video(speaker_video_dir_path, dst_dir_path)
 
