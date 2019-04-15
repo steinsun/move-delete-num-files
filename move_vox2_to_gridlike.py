@@ -12,7 +12,7 @@ def move_audio(src_path,dst_path) :
             for audio in audio_dir:
                 
                 extension_tmp = audio.suffix
-                extension = extension_tmp.replace(".",)
+                extension = extension_tmp.replace(".","")
                 try:
                     track = AudioSegment.from_file(str(audio), extension)
                     wav_filename = f"{audio.stem}.wav"
