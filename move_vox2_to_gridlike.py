@@ -33,7 +33,7 @@ def move_video(src_path,dst_path) :
             video_dir = list(youtubeid.glob("*.mp4"))
             print(str(youtubeid))
             for video in video_dir:
-                print(f"from {video} to {str(dst_path)}/video/{video.stem}{video.suffix}")
+                print(f"COPYING: from {video} to {str(dst_path)}/video/{video.stem}{video.suffix}")
                 copy2(str(video), str(dst_path/speaker.stem /f"video"))
 
 if __name__ == "__main__" :
