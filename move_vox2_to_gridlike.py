@@ -1,5 +1,6 @@
 from pathlib import Path
 from shutil import copy2
+from pydub import AudioSegment
 
 def move_audio(src_path,dst_path) :
     audio_dir = []
@@ -18,9 +19,9 @@ def move_audio(src_path,dst_path) :
                     wav_filename = f"{audio.stem}.wav"
                     wav_path = dst_path / speaker.stem / f"audio" / wav_filename
                     print('CONVERTING: ' + str(audio))
-                    #file_handle = track.export(str(wav_path), format='wav')
+                    file_handle = track.export(str(wav_path), format='wav')
                     print(str(wav_path))
-                    #print(str(file_handle))
+                    print(str(file_handle))
                 except:
                     print("ERROR CONVERTING " + str(audio))
 
