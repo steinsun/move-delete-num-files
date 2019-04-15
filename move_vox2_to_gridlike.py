@@ -11,15 +11,16 @@ def move_audio(src_path,dst_path) :
             print(str(youtubeid))
             for audio in audio_dir:
                 
-                extension = audio.suffix.replace(".","")
+                extension_tmp = audio.suffix
+                extension = extension_tmp.replace(".",)
                 try:
                     track = AudioSegment.from_file(str(audio), extension)
                     wav_filename = f"{audio.stem}.wav"
                     wav_path = dst_path / speaker.stem / f"audio" / wav_filename
                     print('CONVERTING: ' + str(audio))
                     #file_handle = track.export(str(wav_path), format='wav')
-                    print(wav_path)
-                    print(str(file_handle))
+                    print(str(wav_path))
+                    #print(str(file_handle))
                 except:
                     print("ERROR CONVERTING " + str(audio))
 
