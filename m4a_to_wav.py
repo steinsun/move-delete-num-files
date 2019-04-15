@@ -11,6 +11,7 @@ for filename in os.listdir(folder):
       
 import os
 from pydub import AudioSegment
+from pathlib import Path
 
 formats_to_convert = ['.m4a']
 

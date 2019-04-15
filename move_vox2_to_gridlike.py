@@ -10,8 +10,21 @@ def move_audio(src_path,dst_path) :
             audio_dir = list(youtubeid.glob("*.m4a"))
             print(str(youtubeid))
             for audio in audio_dir:
+                extension = audio.suffix.replace(".","")
+                try:
+                    track = AudioSegment.from_file(str(audio), extension)
+                    wav_filename = f"{audio.stem}.wav"
+                    wav_path = dst_path / speaker.stem / f"audio" / wav_filename
+                    print('CONVERTING: ' + str(filepath))
+                    file_handle = track.export(wav_path, format='wav')
+                    print(str(file_handle))
+                except:
+                    print("ERROR CONVERTING " + str(audio))
+
+
                 print(f"from {audio} to {str(dst_path)}/audio/{audio.stem}{audio.suffix}")
-                copy2(str(audio), str(dst_path/speaker.stem /f"audio"))
+
+                #copy2(str(audio), str(dst_path/speaker.stem /f"audio"))
 
 def move_video(src_path,dst_path) :
     video_dir = []
