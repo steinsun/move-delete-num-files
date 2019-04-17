@@ -40,10 +40,17 @@ if __name__ == "__main__" :
     #speaker_audio_dir_path = Path("/home/szb/datasets/vox2tmp/audio")
     #speaker_video_dir_path = Path("/home/szb/datasets/vox2tmp/video")
     #dst_dir_path = Path("/home/szb/datasets/vox2")
-    speaker_audio_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/audio/vox2_aac/dev/aac")
-    speaker_video_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/video/vox2_mp4/dev/mp4")
-    dst_dir_path = Path("/media/datas/steinsun/datasets/vox2")
+    #speaker_audio_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/audio/vox2_aac/dev/aac")
+    #speaker_video_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/video/vox2_mp4/dev/mp4")
+    #dst_dir_path = Path("/media/datas/steinsun/datasets/vox2")
 
-    move_audio(speaker_audio_dir_path, dst_dir_path)
-    move_video(speaker_video_dir_path, dst_dir_path)
+    #move_audio(speaker_audio_dir_path, dst_dir_path)
+    #move_video(speaker_video_dir_path, dst_dir_path)
+
+    test_speaker_audio_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/audio/vox2_test_aac/aac")
+    test_speaker_video_dir_path = Path("/media/datas/steinsun/datasets/voxceleb2/video/vox2_test_mp4/mp4")
+    test_dst_dir_path = Path("/media/datas/steinsun/datasets/vox2_test")
+
+    move_audio(test_speaker_audio_dir_path, test_dst_dir_path)
+    move_video(test_speaker_video_dir_path, test_dst_dir_path)
 
